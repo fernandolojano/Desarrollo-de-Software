@@ -7,11 +7,11 @@ package FactoriaAbstracta;
 
 /**
  *
- * @author reko98
+ * @author reko98D
  */
 public class Conversor {
-    String Divisa;
-    double valorUnidad;
+   protected String Divisa;
+   protected double valorUnidad;
     
     
     public void run(){
