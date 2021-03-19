@@ -19,6 +19,14 @@ public class CryptoCurrency {
     }
     
     public void setValorActual(double nuevoValor){
+        
+         if(nuevoValor < this.valorMinimo ){
+               this.setValorMinimo(nuevoValor);
+            }
+            
+            if(nuevoValor > valorMaximo){
+                this.setValorMaximo(nuevoValor);
+            }
       this.valorActual=nuevoValor; 
     }
     

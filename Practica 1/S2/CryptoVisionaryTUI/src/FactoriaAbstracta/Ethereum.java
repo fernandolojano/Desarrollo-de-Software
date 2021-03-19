@@ -5,6 +5,8 @@
  */
 package FactoriaAbstracta;
 
+import java.util.Random;
+
 /**
  *
  * @author reko98
@@ -19,6 +21,22 @@ public class Ethereum extends CryptoCurrency {
      
     @Override
     public void run(){
+        
+           while(true){
+                Random r = new Random();
+                double low = 0;
+                double high = 3000;
+                double result = r.nextInt((int) (high-low)) + low;
+             
+                this.setValorActual(result);
+                
+                try {
+                Thread.sleep(6*1000);
+             } catch (Exception e) {
+                System.out.println(e);
+             }
+                
+            }
         
     }
     
