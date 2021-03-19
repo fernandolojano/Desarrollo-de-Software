@@ -5,17 +5,49 @@
  */
 package FactoriaAbstracta;
 
+import java.util.*;
+
 /**
  *
  * @author reko98
  */
-public class CryptoVisionaryTUI {
-
-    /**
-     * @param args the command line arguments
-     */
+public class CryptoVisionaryTUI  {
+    public static CryptoCurrency moneda1;
+    public static CryptoCurrency moneda2;
+    public static Conversor convGen1;
+    public static Conversor convGen2;
+    public static FactoriaCriptomonedaDivisa factoria;
+    public static double valorConversion1;
+    
+    public static void generar(){
+        factoria = (FactoriaCriptomonedaDivisa) new FactoriaXRPEUR(); 
+        moneda1 = factoria.crearCripto();
+        convGen1 = factoria.crearConversor();
+        
+       
+    }
+  
+    
+    
+    
+    
+    
+    
+    
+    
+    
     public static void main(String[] args) {
-        // TODO code application logic here
+       generar();
+       Thread hebraRunnable = new Thread( moneda1);
+        hebraRunnable.start();
+         
+        
+        
+        double valor = moneda1.getValorActual();
+       
+        /*System.out.println("precio" + valor);*/
+       
+       
     }
     
 }

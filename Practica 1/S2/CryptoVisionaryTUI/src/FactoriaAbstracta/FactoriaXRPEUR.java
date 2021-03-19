@@ -1,14 +1,16 @@
+package FactoriaAbstracta;
 
 public class FactoriaXRPEUR implements FactoriaCriptomonedaDivisa {
+    
+    @Override
     public Ripple crearCripto() {
-        Ripple ripple = new Ripple();
-
-        return ripple;
+              
+        return new Ripple();
     }
-
+    
+    @Override
     public ConversorEUR crearConversor() {
-        ConversorEUR convEur = new ConversorEUR();
         
-        return convEur;
+        return new ConversorEUR();
     }
 }

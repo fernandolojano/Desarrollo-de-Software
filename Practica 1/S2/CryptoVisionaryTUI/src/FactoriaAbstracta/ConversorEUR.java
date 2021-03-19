@@ -10,8 +10,20 @@ package FactoriaAbstracta;
  * @author reko98
  */
 public class ConversorEUR extends Conversor{
-    public double convert(Ripple ripple) {
+    
+     
+   @Override
+   public void setDivisa(){
+       this.Divisa="EUR";
+   }
+    
+    
+    
+    @Override
+    public double Convertir(CryptoCurrency ripple){
         
+        System.out.println("precio" + ripple.getValorActual());
+       
         return ripple.getValorActual()*0.26;
     }
 }

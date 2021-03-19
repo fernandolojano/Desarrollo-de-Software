@@ -6,11 +6,11 @@
 package FactoriaAbstracta;
 
 
-public class CryptoCurrency {
+public class CryptoCurrency implements Runnable{
     protected String token;
-    protected Double valorActual;
-    protected Double valorMinimo;
-    protected Double valorMaximo;
+    protected Double valorActual=0.0;
+    protected Double valorMinimo=0.0;
+    protected Double valorMaximo=0.0;
     
     
     
@@ -28,6 +28,8 @@ public class CryptoCurrency {
                 this.setValorMaximo(nuevoValor);
             }
       this.valorActual=nuevoValor; 
+      //System.out.println("valor" + this.valorActual);
+       
     }
     
     public void setValorMaximo(double nuevoValor){

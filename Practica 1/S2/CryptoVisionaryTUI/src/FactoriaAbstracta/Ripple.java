@@ -5,11 +5,15 @@
  */
 package FactoriaAbstracta;
 
+import java.util.Random;
+
 /**
  *
  * @author reko98
  */
 public class Ripple extends CryptoCurrency{
+    
+    
     
     @Override
      public void setToken(){
@@ -20,6 +24,22 @@ public class Ripple extends CryptoCurrency{
      
     @Override
     public void run(){
+        
+           while(true){
+                double low = 0;
+                double high = 10;
+                double result =Math.random() * (high-low)+ low;
+                //System.out.println("resutlado" + result);
+       
+                this.setValorActual(result);
+                System.out.println("resutlado" + this.getValorActual());
+                try {
+                Thread.sleep(6*1000);
+             } catch (Exception e) {
+                System.out.println(e);
+             }
+                
+            }
         
     }
     

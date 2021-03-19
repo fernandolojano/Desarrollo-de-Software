@@ -7,15 +7,18 @@ package FactoriaAbstracta;
 
 /**
  *
- * @author reko98D
+ * @author reko98
  */
+
 public class Conversor {
    protected String Divisa;
    protected double valorUnidad;
     
     
-    public void run(){
-        
-    }
+ 
     
+    public void setDivisa(){}
+    public double Convertir(CryptoCurrency moneda){
+        return 0;
+    }
 }
