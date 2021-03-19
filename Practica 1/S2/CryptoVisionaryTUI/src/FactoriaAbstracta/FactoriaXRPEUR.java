@@ -8,5 +8,7 @@ public class FactoriaXRPEUR implements FactoriaCriptomonedaDivisa {
 
     public ConversorEUR crearConversor() {
         ConversorEUR convEur = new ConversorEUR();
+        
+        return convEur;
     }
 }
