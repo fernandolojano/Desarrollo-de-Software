@@ -13,16 +13,13 @@ public class FactoriaETHGBP implements FactoriaCriptomonedaDivisa{
     
       @Override
     public Ethereum crearCripto() {
-        Ethereum ethereum = new Ethereum();
-
-        return ethereum;
+        return new Ethereum();
     }
     
     @Override
     public ConversorGBP crearConversor() {
-        ConversorGBP convGbp = new ConversorGBP();
-        
-        return convGbp;
+ 
+        return new ConversorGBP();
     }
     
 }

@@ -32,7 +32,7 @@ public class Ripple extends CryptoCurrency{
                 //System.out.println("resutlado" + result);
        
                 this.setValorActual(result);
-                System.out.println("resutlado" + this.getValorActual());
+                System.out.println("                                            resutlado" + this.getValorActual());
                 try {
                 Thread.sleep(6*1000);
              } catch (Exception e) {

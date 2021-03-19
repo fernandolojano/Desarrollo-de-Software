@@ -23,6 +23,14 @@ public class CryptoVisionaryTUI  {
         factoria = (FactoriaCriptomonedaDivisa) new FactoriaXRPEUR(); 
         moneda1 = factoria.crearCripto();
         convGen1 = factoria.crearConversor();
+        convGen1.setMoneda(moneda1);
+        
+        factoria =(FactoriaCriptomonedaDivisa) new FactoriaETHGBP(); 
+        moneda2 = factoria.crearCripto();
+        convGen2 = factoria.crearConversor();
+        convGen2.setMoneda(moneda2);
+       
+        
         
        
     }
@@ -38,15 +46,22 @@ public class CryptoVisionaryTUI  {
     
     public static void main(String[] args) {
        generar();
-       Thread hebraRunnable = new Thread( moneda1);
-        hebraRunnable.start();
+       Thread hebraRunnable1 = new Thread( moneda1);
+        hebraRunnable1.start();
+        
+        Thread hebraRunnable2 = new Thread(convGen1);
+        hebraRunnable2.start();
+        
+        Thread hebraRunnable3 = new Thread( moneda2);
+        hebraRunnable3.start();
+        
+        Thread hebraRunnable4 = new Thread(convGen2);
+        hebraRunnable4.start();
+        
+        
+        
          
-        
-        
-        double valor = moneda1.getValorActual();
-       
-        /*System.out.println("precio" + valor);*/
-       
+   
        
     }
     

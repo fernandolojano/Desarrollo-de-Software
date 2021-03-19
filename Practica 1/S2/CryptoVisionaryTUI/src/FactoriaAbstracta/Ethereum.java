@@ -29,6 +29,7 @@ public class Ethereum extends CryptoCurrency {
                 double result = r.nextInt((int) (high-low)) + low;
              
                 this.setValorActual(result);
+                System.out.println("resutlado" + this.getValorActual());
                 
                 try {
                 Thread.sleep(6*1000);

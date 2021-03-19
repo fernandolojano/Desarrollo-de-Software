@@ -11,6 +11,7 @@ package FactoriaAbstracta;
  */
 public class ConversorGBP extends Conversor{
     
+    
     @Override
     public void setDivisa(){
         this.Divisa="GBP";
@@ -18,9 +19,12 @@ public class ConversorGBP extends Conversor{
     
       
     @Override
-    public double Convertir(CryptoCurrency ripple){
-        
-        return ripple.getValorActual()*0.72;
+    public double Convertir(){
+       double res =this.monedaLocal.getValorActual()*0.72;
+        System.out.println("precio" + res);
+       
+        return res;
     }
+
     
 }
