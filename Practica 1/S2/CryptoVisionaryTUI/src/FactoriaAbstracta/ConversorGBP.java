@@ -9,6 +9,6 @@ package FactoriaAbstracta;
  *
  * @author reko98
  */
-public class ConversorGBP {
+public class ConversorGBP extends Conversor{
     
 }
