@@ -22,8 +22,8 @@ FilterManager::FilterManager(const FilterManager& orig) {
 FilterManager::~FilterManager() {
 }
 
-void FilterManager::addFilter(Filter& nuevoFiltro){
-	list.addFilter(nuevoFiltro);
+void FilterManager::addFilter(string filterType, double filterValue){
+	list.addFilter(filterType, filterValue);
 }
 
 void FilterManager::execution(CryptoCurrency& moneda){

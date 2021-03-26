@@ -21,13 +21,14 @@ using namespace std;
 class FilterHalving : public Filter {
 public:
     FilterHalving();
+    FilterHalving(double newValue);
     FilterHalving(const FilterHalving& orig);
     ~FilterHalving();
     void setHalvingCuantity(double nuevoValor){this->halvingCuantity=nuevoValor;}
     double getHalvingCuantity(){return this->halvingCuantity;}
     
     
-    virtual double apply(CryptoCurrency& moneda)override;
+    double apply(CryptoCurrency& moneda)override;
 private:
     double halvingCuantity;
 

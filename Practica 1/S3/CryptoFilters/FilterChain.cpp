@@ -12,6 +12,8 @@
  */
 
 #include "FilterChain.h"
+#include "FilterHalving.h"
+#include "FilterInvestment.h"
 
 FilterChain::FilterChain() {
 }
@@ -22,10 +24,19 @@ FilterChain::FilterChain(const FilterChain& orig) {
 FilterChain::~FilterChain() {
 }
 
+void FilterChain::addFilter(string filterType, double filterValue ){
+    if(filterType == "Halving")
+            filterList.push_back(new FilterHalving(filterValue));
+       
+    else if (filterType == "Inversion")   
+            filterList.push_back(new FilterInvestment(filterValue));
+
+}
+
 void FilterChain::Execute(CryptoCurrency& moneda) {
     double nuevoPrecio;
 	for(int i=0; i < this->filterList.size(); i++){
-            nuevoPrecio=(filterList[i]).apply(moneda);
+            nuevoPrecio=(filterList[i])->apply(moneda);
             cout << "Nuevo precio " << nuevoPrecio << endl;
 
                 moneda.setValorActual(nuevoPrecio);

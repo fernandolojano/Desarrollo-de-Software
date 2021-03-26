@@ -10,9 +10,12 @@
             <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/FilterChain.h</file>
             <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/Filter.cpp</file>
             <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/FilterInvestment.cpp</file>
+            <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/Filter.h</file>
+            <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/FilterInvestment.h</file>
             <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/FilterChain.cpp</file>
             <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/FilterHalving.cpp</file>
-            <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/CryptoCurrency.cpp</file>
+            <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/FilterHalving.h</file>
+            <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/FilterManager.h</file>
             <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/FilterManager.cpp</file>
             <file>file:/home/reko98/repos/Desarrollo-de-Software/Practica%201/S3/CryptoFilters/Client.cpp</file>
         </group>

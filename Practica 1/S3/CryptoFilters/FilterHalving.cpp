@@ -19,6 +19,10 @@ FilterHalving::FilterHalving() {
 FilterHalving::FilterHalving(const FilterHalving& orig) {
 }
 
+FilterHalving::FilterHalving(double newValue){
+    setHalvingCuantity(newValue);
+}
+
 FilterHalving::~FilterHalving() {
 }
 

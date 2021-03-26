@@ -22,8 +22,8 @@ class FilterManager {
 public:
     FilterManager();
     FilterManager(const FilterManager& orig);
-     ~FilterManager();
-    void addFilter(Filter& nuevoFiltro);
+    ~FilterManager();
+    void addFilter(string filterType, double filterValue );
     void execution(CryptoCurrency& moneda);
 private:
     FilterChain list;

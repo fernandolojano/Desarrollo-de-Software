@@ -22,11 +22,12 @@ using namespace std;
 class FilterInvestment: public Filter{
 public:
     FilterInvestment();
+    FilterInvestment(double newValue);
     FilterInvestment(const FilterInvestment& orig);
     virtual ~FilterInvestment();
     void setCantidadInversion(double nuevoValor){this->cantidadInversion=nuevoValor;}
     double getCantidadInversion(){return this->cantidadInversion;}
-    virtual double apply(CryptoCurrency& moneda)override;
+    double apply(CryptoCurrency& moneda)override;
 	
 private:
     double cantidadInversion;

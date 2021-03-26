@@ -23,8 +23,6 @@ using namespace std;
  * 
  */
 int main(int argc, char** argv) {
-    FilterInvestment filtro1;
-    FilterHalving filtro2;
     FilterManager despachador;
     CryptoCurrency moneda;
     
@@ -32,13 +30,10 @@ int main(int argc, char** argv) {
     moneda.setValorActual(12000);
     moneda.setCapital(50000000);
     moneda.setToken("BTC");
-   
+  
     
-    filtro1.setCantidadInversion(500000);
-    filtro2.setHalvingCuantity(0.6);
-    
-    despachador.addFilter(filtro1);
-    despachador.addFilter(filtro2);
+    despachador.addFilter("Inversion", 500000);
+    despachador.addFilter("Halving", 0.6);
     despachador.execution(moneda);
     
 }

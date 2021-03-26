@@ -26,12 +26,12 @@ public:
     FilterChain();
     FilterChain(const FilterChain& orig);
     ~FilterChain();
-    void addFilter(Filter& nuevoFiltro){this->filterList.push_back(nuevoFiltro);}
+    void addFilter(string filterType, double filterValue);
     void Execute(CryptoCurrency& moneda);
     int getSize(){return this->filterList.size();}
     
 private:
-    vector<Filter> filterList;
+    vector<Filter *> filterList;
    // CryptoCurrency monedaLocal;
 
 };
