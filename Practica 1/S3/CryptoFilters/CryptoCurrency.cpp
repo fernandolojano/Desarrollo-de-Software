@@ -23,7 +23,7 @@ CryptoCurrency::~CryptoCurrency() {
 }
 
 void CryptoCurrency::execution(){
-	cout << "El valor Final de la CriptoMoneda despues de aplicar los filtros es: " 
-	     << this->getValorActual() << endl;
+	cout << "El valor Final de la criptomoneda " << this->getToken()  << " despues de aplicar los filtros es: " 
+	     << this->getValorActual() << "$" <<endl << endl ;
 	
 }

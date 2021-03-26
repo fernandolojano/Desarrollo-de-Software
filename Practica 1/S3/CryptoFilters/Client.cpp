@@ -26,15 +26,45 @@ int main(int argc, char** argv) {
     FilterManager despachador;
     CryptoCurrency moneda;
     
-     
-    moneda.setValorActual(12000);
-    moneda.setCapital(50000000);
+    moneda.setValorActual(53488.98);
+    moneda.setCapital(998335131339);
     moneda.setToken("BTC");
-  
+     
+    despachador.addFilter("Inversion", 500000000000);
+    despachador.addFilter("Halving", 0.5);
+    int arg = -1;
+        
     
-    despachador.addFilter("Inversion", 500000);
-    despachador.addFilter("Halving", 0.6);
-    despachador.execution(moneda);
-    
-}
+    while(arg != 0){
+        cout << "Seleccione una de las dos Opciones:" << endl;
+        cout << "1 - Imprimir precio actual de la moneda" << endl;
+        cout << "2 - Aplicar filtros" << endl;
+        cout << " Para salir pulse 0" << endl;
+        
+        cin >> arg;
+        switch (arg){
+            case 0:
+                cout << "Saliendo del programa..." << endl;
+                exit(0);
+            break;
+            
+            case 1:
+                cout << "El precio de la moneda " << moneda.getToken() << " es "
+                     << moneda.getValorActual() << " $"  << endl << endl;
+            break;
+            
+            case 2:
+                cout << "Aplicamos los filtros sobre el precio actual " << endl << endl;
+                    despachador.execution(moneda);
+            break;
+            
+            default:
+                cout << "No ha seleccionado ningna opcion disponible."  << endl << endl;
+            break;
+        
+        }
+                
+    };
+
+};
 

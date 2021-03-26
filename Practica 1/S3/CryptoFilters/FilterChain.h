@@ -28,7 +28,7 @@ public:
     ~FilterChain();
     void addFilter(string filterType, double filterValue);
     void Execute(CryptoCurrency& moneda);
-    int getSize(){return this->filterList.size();}
+   
     
 private:
     vector<Filter *> filterList;

@@ -37,10 +37,8 @@ void FilterChain::Execute(CryptoCurrency& moneda) {
     double nuevoPrecio;
 	for(int i=0; i < this->filterList.size(); i++){
             nuevoPrecio=(filterList[i])->apply(moneda);
-            cout << "Nuevo precio " << nuevoPrecio << endl;
-
-                moneda.setValorActual(nuevoPrecio);
-                 
+       
+                moneda.setValorActual(nuevoPrecio);     
 	}
 
 	moneda.execution();

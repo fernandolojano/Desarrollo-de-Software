@@ -28,9 +28,7 @@ FilterHalving::~FilterHalving() {
 
 double FilterHalving::apply(CryptoCurrency& moneda){
 	double nuevoPrecio;
-        cout << "El valor de halving que se va a aplicar es: " << this->getHalvingCuantity() << endl;
-        cout << "El valor del precio original de la moneda es: " << moneda.getValorActual() << endl;
-        
+       
 	nuevoPrecio= this->halvingCuantity * moneda.getValorActual();
 
 	return nuevoPrecio;

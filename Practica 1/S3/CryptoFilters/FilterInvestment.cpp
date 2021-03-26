@@ -30,13 +30,10 @@ FilterInvestment::FilterInvestment(double newValue){
 double FilterInvestment::apply(CryptoCurrency& moneda) {
 	double valorPorcentaje;
 	double cantidadIncremento;
-	cout << "El valor de la inversion que se va a realizar es: " << this->getCantidadInversion() << endl;
 	valorPorcentaje = (this->cantidadInversion*100)/moneda.getCapital();
 
 	valorPorcentaje = valorPorcentaje/100;
         
-        cout << "El porcentaje que se va a aplicar con el precio es: "<< valorPorcentaje << endl;
-
 	cantidadIncremento=valorPorcentaje*moneda.getValorActual();
 
 	return moneda.getValorActual()+cantidadIncremento;
