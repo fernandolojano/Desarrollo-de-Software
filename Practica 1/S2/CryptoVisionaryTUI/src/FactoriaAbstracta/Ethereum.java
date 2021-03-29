@@ -13,6 +13,12 @@ import java.util.Random;
  */
 public class Ethereum extends CryptoCurrency {
     
+
+
+    public Ethereum() {
+        setToken();
+    }
+    
     @Override
      public void setToken(){
         this.token="ETH";
@@ -29,7 +35,7 @@ public class Ethereum extends CryptoCurrency {
                 double result = r.nextInt((int) (high-low)) + low;
              
                 this.setValorActual(result);
-                System.out.println("resutlado" + this.getValorActual());
+
                 
                 try {
                 Thread.sleep(6*1000);

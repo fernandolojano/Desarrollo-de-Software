@@ -10,20 +10,28 @@ package FactoriaAbstracta;
  * @author reko98
  */
 public class ConversorGBP extends Conversor{
+
+    public ConversorGBP() {
+        setDivisa();
+    }
     
     
     @Override
     public void setDivisa(){
         this.Divisa="GBP";
     }
-    
       
-    @Override
-    public double Convertir(){
-       double res =this.monedaLocal.getValorActual()*0.72;
-        System.out.println("precio" + res);
-       
-        return res;
+   @Override
+    public void Convertir(){
+        
+        double nuevoPrecio = getValorUnidad()*0.84;
+        if(nuevoPrecio != getPrecioActual()){
+            setPrecioAnterior(getPrecioActual());
+            setPrecioActual(nuevoPrecio);
+                    
+        }
+        
+     
     }
 
     

@@ -11,6 +11,10 @@ package FactoriaAbstracta;
  */
 public class ConversorEUR extends Conversor{
 
+    public ConversorEUR() {
+        setDivisa();
+    }
+
      
    @Override
    public void setDivisa(){
@@ -20,11 +24,15 @@ public class ConversorEUR extends Conversor{
   
     
     @Override
-    public double Convertir(){
-        double res =this.monedaLocal.getValorActual()*0.84;
-        System.out.println("                                            precio" + res);
-       
-        return res;
-    }
+    public void Convertir(){
+ 
+        double nuevoPrecio = getValorUnidad()*0.84;
+      
+        if(nuevoPrecio != getPrecioActual()){
+            setPrecioAnterior(getPrecioActual());
+            setPrecioActual(nuevoPrecio);
+        
+        }
 
+    }
 }

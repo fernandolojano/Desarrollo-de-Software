@@ -6,7 +6,7 @@
 package FactoriaAbstracta;
 
 
-public class CryptoCurrency implements Runnable{
+public class CryptoCurrency extends Thread{
     protected String token;
     protected Double valorActual=0.0;
     protected Double valorMinimo=0.0;
@@ -18,8 +18,7 @@ public class CryptoCurrency implements Runnable{
         
     }
     
-    public void setValorActual(double nuevoValor){
-        
+    public void setValorActual(double nuevoValor){      
          if(nuevoValor < this.valorMinimo ){
                this.setValorMinimo(nuevoValor);
             }
@@ -27,8 +26,8 @@ public class CryptoCurrency implements Runnable{
             if(nuevoValor > valorMaximo){
                 this.setValorMaximo(nuevoValor);
             }
+
       this.valorActual=nuevoValor; 
-      //System.out.println("valor" + this.valorActual);
        
     }
     
