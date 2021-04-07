@@ -12,6 +12,10 @@ import java.util.Random;
  * @author reko98
  */
 public class Ripple extends CryptoCurrency{
+
+    public Ripple() {
+        setToken();
+    }
     
     
     
@@ -32,7 +36,6 @@ public class Ripple extends CryptoCurrency{
                 //System.out.println("resutlado" + result);
        
                 this.setValorActual(result);
-                System.out.println("                                            resutlado" + this.getValorActual());
                 try {
                 Thread.sleep(6*1000);
              } catch (Exception e) {
