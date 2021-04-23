@@ -8,10 +8,6 @@ import 'package:crypto_visionary/FilterManager.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-
-  //BDCriptomonedas baseDatos = new BDCriptomonedas();
-
-
   runApp(CryptoVisionary());
 }
 
@@ -53,17 +49,35 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  BDCriptomonedas baseDatos = new BDCriptomonedas();
+  FilterManager filterManager = new FilterManager();
+  List<Cryptocurrency> misMonedas = [];
 
+  void aplicarFiltros() {
+    filterManager.addFilter(new FilterHalving(1.23));
+    filterManager.addFilter(new FilterInvestment(100));
+  }
+
+  void obtenerMonedas() {
+    aplicarFiltros();
+    Actualizador update = new Actualizador(baseDatos, filterManager);
+    misMonedas = baseDatos.getListaMonedas();
+  }
 
   @override
   Widget build(BuildContext context) {
 
+    /*
     BDCriptomonedas baseDatos = new BDCriptomonedas();
     FilterManager filterManager = new FilterManager();
     filterManager.addFilter(new FilterHalving(1.23));
     filterManager.addFilter(new FilterInvestment(100));
     Actualizador update = new Actualizador(baseDatos, filterManager);
     List<Cryptocurrency> misMonedas = baseDatos.getListaMonedas();
+     */
+
+    obtenerMonedas();
+
 
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.

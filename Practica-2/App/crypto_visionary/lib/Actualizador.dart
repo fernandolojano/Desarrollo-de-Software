@@ -20,9 +20,9 @@ class Actualizador{
     Random rand = new Random();
     double min = 10000;
     double max = 100000;
-    criptomoneda.setValorActual(rand.nextDouble() * (max-min) + min);
-    print(criptomoneda.getValorActual());
+
     while(true){
+      criptomoneda.setValorActual(rand.nextDouble() * (max-min) + min);
       manager.execution(criptomoneda);
       await Future.delayed(Duration(milliseconds: rand.nextInt(5000) + 5000));
     }
