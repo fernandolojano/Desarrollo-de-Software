@@ -15,8 +15,9 @@ class CoinView extends StatelessWidget {
       appBar: AppBar(
         title: Text(coin.getToken()),
       ),
-      body: Container(
+      body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget> [
             Text(
               coin.getToken(),
