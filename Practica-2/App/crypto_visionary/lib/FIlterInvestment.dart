@@ -26,6 +26,7 @@ class FilterInvestment implements Filter {
 
     diferencia = (cantidadInversion+moneda.getCapital()) - moneda.getCapital();
     valorPorcentaje = (diferencia/moneda.getCapital()) * 100;
+    moneda.setCapital(moneda.getCapital()+cantidadInversion);
 
     cantidadIncremento=valorPorcentaje*moneda.getValorActual();
     return moneda.getValorActual()+cantidadIncremento;
