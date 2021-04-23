@@ -6,6 +6,10 @@ class FilterInvestment implements Filter {
 
   double cantidadInversion;
 
+  FilterInvestment(double inversion) {
+    cantidadInversion = inversion;
+  }
+
   void setCatindadInversion(double nuevaCantidad){
     this.cantidadInversion = nuevaCantidad;
   }
@@ -18,9 +22,10 @@ class FilterInvestment implements Filter {
   double apply(Cryptocurrency moneda){
     double valorPorcentaje;
     double cantidadIncremento;
+    double diferencia;
 
-    valorPorcentaje = (this.getCantidadInversion()*100)/moneda.getCapital();
-    valorPorcentaje = valorPorcentaje/100;
+    diferencia = (cantidadInversion+moneda.getCapital()) - moneda.getCapital();
+    valorPorcentaje = (diferencia/moneda.getCapital()) * 100;
 
     cantidadIncremento=valorPorcentaje*moneda.getValorActual();
     return moneda.getValorActual()+cantidadIncremento;

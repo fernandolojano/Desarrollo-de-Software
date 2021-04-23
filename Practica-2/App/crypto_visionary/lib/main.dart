@@ -1,15 +1,22 @@
 import 'package:crypto_visionary/BDCriptomonedas.dart';
 import 'package:crypto_visionary/Cryptocurrency.dart';
+import 'package:crypto_visionary/CoinView.dart';
+import 'package:crypto_visionary/Actualizador.dart';
+import 'package:crypto_visionary/FIlterInvestment.dart';
+import 'package:crypto_visionary/FilterHalving.dart';
+import 'package:crypto_visionary/FilterManager.dart';
 import 'package:flutter/material.dart';
 
 void main() {
 
+  //BDCriptomonedas baseDatos = new BDCriptomonedas();
 
-  BDCriptomonedas baseDatos = new BDCriptomonedas();
+
   runApp(CryptoVisionary());
 }
 
 class CryptoVisionary extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -38,45 +45,26 @@ class MyHomePage extends StatefulWidget {
 
   final String title;
 
+
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 
 class _MyHomePageState extends State<MyHomePage> {
-  var moneda = Cryptocurrency();
-  double valor  = 0;
-
-
-
-
-Widget bodyData()=>DataTable(
-   columns: <DataColumn> [
-     DataColumn(
-       label: Text("Prueba"),
-       numeric: false,
-       onSort: (i, b) {},
-     ),
-     DataColumn(
-         label: Text("Prueba2"),
-         numeric: false,
-         onSort: (i, b) {},
-     ),
-   ],
-
-  rows: <DataRow>[
-    DataRow(cells: <DataCell>[
-      DataCell(Text("Pawan")),
-      DataCell(Text("Kumar")),
-    ])
-  ],
-);
-
 
 
 
   @override
   Widget build(BuildContext context) {
+
+    BDCriptomonedas baseDatos = new BDCriptomonedas();
+    FilterManager filterManager = new FilterManager();
+    filterManager.addFilter(new FilterHalving(1.23));
+    filterManager.addFilter(new FilterInvestment(100));
+    Actualizador update = new Actualizador(baseDatos, filterManager);
+    List<Cryptocurrency> misMonedas = baseDatos.getListaMonedas();
+
     // This method is rerun every time setState is called, for instance as done
     // by the _incrementCounter method above.
     //
@@ -89,9 +77,18 @@ Widget bodyData()=>DataTable(
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Container(
-        child: bodyData(),
-      )
+      body: ListView.builder(
+        itemCount: misMonedas.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            onTap: () {
+              Navigator.push(context, MaterialPageRoute(builder: (context) => CoinView(misMonedas[index])));
+            },
+            title: Text(misMonedas[index].getToken()),
+            subtitle: Text("\$" + misMonedas[index].getValorActual().toString()),
+            trailing: Icon(Icons.keyboard_arrow_right_rounded),
+          );
+        })
     );
   }
 }

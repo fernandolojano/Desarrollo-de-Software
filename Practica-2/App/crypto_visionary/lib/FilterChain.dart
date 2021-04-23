@@ -3,13 +3,15 @@ import 'package:flutter/material.dart';
 import 'Filter.dart';
 
 class FilterChain{
-  List<Filter> filterList;
+  List<Filter> filterList = [];
 
   void execute(Cryptocurrency moneda){
     double nuevoPrecio;
+    print("FilterChain");
     for(int i=0; i < this.filterList.length; i++){
-    nuevoPrecio=(filterList[i]).apply(moneda);
-    moneda.setValorActual(nuevoPrecio);
+      nuevoPrecio=(filterList[i]).apply(moneda);
+      nuevoPrecio = num.parse(nuevoPrecio.toStringAsFixed(2));
+      moneda.setValorActual(nuevoPrecio);
     }
   }
 

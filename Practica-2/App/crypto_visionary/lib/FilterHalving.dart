@@ -6,6 +6,10 @@ import 'Filter.dart';
 class FilterHalving implements Filter {
   double halvingQuantity;
 
+  FilterHalving(double halving){
+    halvingQuantity = halving;
+  }
+
   void setHalvingQuantity( double nuevoValor){
     this.halvingQuantity = nuevoValor;
   }

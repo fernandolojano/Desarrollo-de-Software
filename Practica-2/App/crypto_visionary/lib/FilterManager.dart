@@ -4,7 +4,7 @@ import 'Filter.dart';
 import 'FilterChain.dart';
 
 class FilterManager{
-  FilterChain list;
+  FilterChain list = new FilterChain();
 
   void addFilter(Filter nuevo){
     list.addFilter(nuevo);

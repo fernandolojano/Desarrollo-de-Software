@@ -8,7 +8,7 @@ class Actualizador{
   FilterManager manager;
 
   Actualizador(BDCriptomonedas bd, FilterManager _manager){
-    bd = bd;
+    this.bd = bd;
     manager = _manager;
 
     bd.BD.forEach((moneda) {
@@ -18,6 +18,10 @@ class Actualizador{
 
   Future<void> run(Cryptocurrency criptomoneda) async{
     Random rand = new Random();
+    double min = 10000;
+    double max = 100000;
+    criptomoneda.setValorActual(rand.nextDouble() * (max-min) + min);
+    print(criptomoneda.getValorActual());
     while(true){
       manager.execution(criptomoneda);
       await Future.delayed(Duration(milliseconds: rand.nextInt(5000) + 5000));

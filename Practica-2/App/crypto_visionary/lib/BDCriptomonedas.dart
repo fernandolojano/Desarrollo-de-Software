@@ -1,53 +1,26 @@
-import 'dart:html';
+//import 'dart:html';
 
 import 'package:crypto_visionary/Cryptocurrency.dart';
 import 'package:flutter/material.dart';
 
 class BDCriptomonedas {
-  List<Cryptocurrency> BD;
+  List<Cryptocurrency> BD = [];
 
 
   BDCriptomonedas(){
-    Cryptocurrency tmp;
+    Cryptocurrency bitcoin = new Cryptocurrency("BTC", 50, 63400, 0.00008, 64000);
+    Cryptocurrency ethereum = new Cryptocurrency("ETH", 22, 2400, 1.2, 2500);
+    Cryptocurrency xrp = new Cryptocurrency("XRP", 78, 1.5, 0.007, 3.5);
+    Cryptocurrency ltc = new Cryptocurrency("LTC", 12, 240, 1.2, 300);
+    Cryptocurrency bnb = new Cryptocurrency("BNB", 66, 345, 0.0, 500);
+    Cryptocurrency dodge = new Cryptocurrency("DOGE", 10, 0.38, 0.002, 0.40);
 
-    tmp.setToken("BTC");
-    tmp.setValorActual(63400);
-    tmp.setValorMaximo(64000);
-    tmp.setValorMinimo(0.00008);
-    this.addMoneda(tmp);
-
-    tmp.setToken("ETH");
-    tmp.setValorActual(2400);
-    tmp.setValorMaximo(2500);
-    tmp.setValorMinimo(1.2);
-    this.addMoneda(tmp);
-
-
-    tmp.setToken("XRP");
-    tmp.setValorActual(1.5);
-    tmp.setValorMaximo(3.5);
-    tmp.setValorMinimo(0.007);
-    this.addMoneda(tmp);
-
-
-    tmp.setToken("LTC");
-    tmp.setValorActual(240);
-    tmp.setValorMaximo(300);
-    tmp.setValorMinimo(1.2);
-    this.addMoneda(tmp);
-
-
-    tmp.setToken("BNB");
-    tmp.setValorActual(345);
-    tmp.setValorMaximo(500);
-    tmp.setValorMinimo(0.0);
-    this.addMoneda(tmp);
-
-    tmp.setToken("DOGE");
-    tmp.setValorActual(0.38);
-    tmp.setValorMaximo(0.40);
-    tmp.setValorMinimo(0.002);
-    this.addMoneda(tmp);
+    this.addMoneda(bitcoin);
+    this.addMoneda(ethereum);
+    this.addMoneda(xrp);
+    this.addMoneda(ltc);
+    this.addMoneda(bnb);
+    this.addMoneda(dodge);
   }
   void addMoneda(Cryptocurrency coin){
     BD.add(coin);
@@ -61,5 +34,9 @@ class BDCriptomonedas {
     }
 
     return null;
+  }
+
+  List<Cryptocurrency> getListaMonedas() {
+    return BD;
   }
 }
