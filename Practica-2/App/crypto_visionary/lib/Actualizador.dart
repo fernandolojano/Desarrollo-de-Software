@@ -18,11 +18,11 @@ class Actualizador{
 
   Future<void> run(Cryptocurrency criptomoneda) async{
     Random rand = new Random();
-    double min = 10000;
-    double max = 100000;
+   // double min = 0;
+    //double max = 100000;
 
     while(true){
-      criptomoneda.setValorActual(rand.nextDouble() * (max-min) + min);
+      //criptomoneda.setValorActual(rand.nextDouble() * (max-min) + min);
       manager.execution(criptomoneda);
       await Future.delayed(Duration(milliseconds: rand.nextInt(5000) + 5000));
     }

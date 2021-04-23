@@ -13,14 +13,14 @@ class BDCriptomonedas {
     Cryptocurrency xrp = new Cryptocurrency("XRP", 50328423865, 1.5, 0.007, 3.5);
     Cryptocurrency ltc = new Cryptocurrency("LTC", 15639510221, 240, 1.2, 300);
     Cryptocurrency bnb = new Cryptocurrency("BNB", 77711586091, 345, 0.0, 500);
-    Cryptocurrency dodge = new Cryptocurrency("DOGE", 31225717622, 0.38, 0.002, 0.40);
+    Cryptocurrency tether = new Cryptocurrency("USTD", 49288696080, 1, 0.002, 0.40);
 
     this.addMoneda(bitcoin);
     this.addMoneda(ethereum);
     this.addMoneda(xrp);
     this.addMoneda(ltc);
     this.addMoneda(bnb);
-    this.addMoneda(dodge);
+    this.addMoneda(tether);
   }
   void addMoneda(Cryptocurrency coin){
     BD.add(coin);

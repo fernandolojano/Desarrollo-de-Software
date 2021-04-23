@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:crypto_visionary/BDCriptomonedas.dart';
 import 'package:crypto_visionary/Cryptocurrency.dart';
@@ -11,6 +12,14 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(CryptoVisionary());
+}
+
+double generarInversion(){
+  Random rand = new Random();
+  double min = -100000;
+  double max = 100000;
+  return (rand.nextDouble() * (max-min) + min);
+
 }
 
 class CryptoVisionary extends StatelessWidget {
@@ -56,8 +65,8 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Cryptocurrency> misMonedas = [];
 
   void aplicarFiltros() {
-    filterManager.addFilter(new FilterHalving(1.5));
-    filterManager.addFilter(new FilterInvestment(10000000));
+    filterManager.addFilter(new FilterHalving(1.001));
+    filterManager.addFilter(new FilterInvestment(generarInversion()));
   }
 
   void obtenerMonedas() {

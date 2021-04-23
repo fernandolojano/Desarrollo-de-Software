@@ -10,7 +10,7 @@ class FilterChain{
     print("FilterChain");
     for(int i=0; i < this.filterList.length; i++){
       nuevoPrecio=(filterList[i]).apply(moneda);
-      nuevoPrecio = num.parse(nuevoPrecio.toStringAsFixed(2));
+      nuevoPrecio = num.parse(nuevoPrecio.toStringAsFixed(3));
       moneda.setValorActual(nuevoPrecio);
     }
   }
