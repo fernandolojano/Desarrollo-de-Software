@@ -4,9 +4,11 @@ import 'Filter.dart';
 
 class FilterChain{
   List<Filter> filterList = [];
+  double nuevoPrecio = 0.0;
+  static FilterChain _instance = null;
 
   void execute(Cryptocurrency moneda){
-    double nuevoPrecio;
+
     print("FilterChain");
     for(int i=0; i < this.filterList.length; i++){
       nuevoPrecio=(filterList[i]).apply(moneda);
@@ -17,5 +19,11 @@ class FilterChain{
 
   void addFilter(Filter newFilter){
     filterList.add(newFilter);
+  }
+
+  static FilterChain getInstance(){
+    if (_instance == null) {
+      _instance = new FilterChain();
+    }
   }
 }
