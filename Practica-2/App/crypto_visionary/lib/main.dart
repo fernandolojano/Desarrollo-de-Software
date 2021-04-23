@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:crypto_visionary/BDCriptomonedas.dart';
 import 'package:crypto_visionary/Cryptocurrency.dart';
 import 'package:crypto_visionary/CoinView.dart';
@@ -48,14 +50,14 @@ class MyHomePage extends StatefulWidget {
 
 
 class _MyHomePageState extends State<MyHomePage> {
-
+  Timer timer;
   BDCriptomonedas baseDatos = new BDCriptomonedas();
   FilterManager filterManager = new FilterManager();
   List<Cryptocurrency> misMonedas = [];
 
   void aplicarFiltros() {
-    filterManager.addFilter(new FilterHalving(1.23));
-    filterManager.addFilter(new FilterInvestment(100));
+    filterManager.addFilter(new FilterHalving(1.5));
+    filterManager.addFilter(new FilterInvestment(10000000));
   }
 
   void obtenerMonedas() {
@@ -65,16 +67,28 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   @override
+  void initState(){
+    super.initState();
+    timer= Timer.periodic(Duration(seconds: 2), (Timer t) => changeValue());
+  }
+
+  void changeValue(){
+    setState(() {
+      for(int i = 0; i<misMonedas.length; i++){
+        subtitle: Text("\$" + misMonedas[i].getValorActual().toString());
+      }
+    });
+  }
+
+  @override
+  void dispose(){
+    timer?.cancel();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
 
-    /*
-    BDCriptomonedas baseDatos = new BDCriptomonedas();
-    FilterManager filterManager = new FilterManager();
-    filterManager.addFilter(new FilterHalving(1.23));
-    filterManager.addFilter(new FilterInvestment(100));
-    Actualizador update = new Actualizador(baseDatos, filterManager);
-    List<Cryptocurrency> misMonedas = baseDatos.getListaMonedas();
-     */
 
     obtenerMonedas();
 
