@@ -11,6 +11,7 @@ import 'package:crypto_visionary/FilterManager.dart';
 import 'package:flutter/material.dart';
 
 void main() {
+
   runApp(CryptoVisionary());
 }
 
@@ -57,7 +58,6 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
-
 class _MyHomePageState extends State<MyHomePage> {
   Timer timer;
   BDCriptomonedas baseDatos = new BDCriptomonedas();
@@ -65,13 +65,13 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Cryptocurrency> misMonedas = [];
 
   void aplicarFiltros() {
-    filterManager.addFilter(new FilterHalving(1.001));
-    filterManager.addFilter(new FilterInvestment(generarInversion()));
+    filterManager.addFilter(new FilterHalving(1.5));
+    filterManager.addFilter(new FilterInvestment(10000000));
   }
 
   void obtenerMonedas() {
     aplicarFiltros();
-    Actualizador update = new Actualizador(baseDatos, filterManager);
+    Actualizador actualizador = new Actualizador(baseDatos, filterManager);
     misMonedas = baseDatos.getListaMonedas();
   }
 
