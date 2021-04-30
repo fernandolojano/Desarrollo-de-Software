@@ -65,21 +65,23 @@ class _MyHomePageState extends State<MyHomePage> {
   List<Cryptocurrency> misMonedas = [];
 
   void aplicarFiltros() {
-    filterManager.addFilter(new FilterHalving(1.5));
-    filterManager.addFilter(new FilterInvestment(10000000));
+    filterManager.addFilter(new FilterHalving(1.001));
+    filterManager.addFilter(new FilterInvestment(generarInversion()));
   }
 
   void obtenerMonedas() {
     aplicarFiltros();
-    Actualizador actualizador = new Actualizador(baseDatos, filterManager);
+    //Actualizador actualizador = new Actualizador(baseDatos, filterManager);
     misMonedas = baseDatos.getListaMonedas();
   }
 
+  /*
   @override
   void initState(){
-    super.initState();
     timer= Timer.periodic(Duration(seconds: 2), (Timer t) => changeValue());
+    super.initState();
   }
+  */
 
   void changeValue(){
     setState(() {
@@ -89,11 +91,14 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
+
+  /*
   @override
   void dispose(){
-    timer?.cancel();
+    timer.cancel();
     super.dispose();
   }
+   */
 
   @override
   Widget build(BuildContext context) {
