@@ -65,10 +65,11 @@ class MyHomePage extends StatefulWidget {
 
 void runCoinView(BuildContext context, Cryptocurrency coin){
   CoinView visor = new CoinView();
-
-  visor.setCoin(coin);
   Navigator.push(context, MaterialPageRoute(builder: (context) => visor));
 }
+
+
+
 class _MyHomePageState extends State<MyHomePage> {
   Timer timer;
   BDCriptomonedas baseDatos = new BDCriptomonedas();

@@ -7,12 +7,20 @@ import 'package:crypto_visionary/CoinView.dart';
 void main() {
 
 
-  Cryptocurrency bitcoin = new Cryptocurrency("BTC", 923440170962, 49402, 0.00008, 64000);
   testWidgets('Token criptomoneda no nulo', (WidgetTester tester) async {
-    CoinView visor = new CoinView();
-    visor.setCoin(bitcoin);
     await tester.pumpWidget(MyApp());
-    expect(find.text('\$49402'), findsNothing);
+    expect(find.text('BTC'), findsWidgets);
 
+  });
+
+  testWidgets('Valor Capital no nulo', (WidgetTester tester) async {
+    await tester.pumpWidget(MyApp());
+    expect(find.text('\$0.0'), findsNothing);
+  });
+
+
+  testWidgets('Precio actual esperado : \$49402', (WidgetTester tester) async {
+    await tester.pumpWidget(MyApp());
+    expect(find.text('\$49402.0'), findsOneWidget);
   });
 }

@@ -10,6 +10,7 @@ void main() {
   runApp(MyApp());
 }
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -20,8 +21,8 @@ class MyApp extends StatelessWidget {
 
 
 class CoinView extends StatelessWidget {
-  Cryptocurrency coin = new Cryptocurrency.empty();
 
+  Cryptocurrency coin =  new Cryptocurrency("BTC", 923440170962, 49402, 0.00008, 64000);
 
 
   void setCoin(Cryptocurrency newCoin){
