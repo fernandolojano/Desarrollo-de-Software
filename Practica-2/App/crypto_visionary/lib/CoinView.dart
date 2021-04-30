@@ -1,12 +1,31 @@
+
 import 'package:flutter/material.dart';
 import 'package:crypto_visionary/Cryptocurrency.dart';
 
-class CoinView extends StatelessWidget {
+import 'main.dart';
 
+
+void main() {
+
+  runApp(MyApp());
+}
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: CoinView(),
+    );
+  }
+}
+
+
+class CoinView extends StatelessWidget {
   Cryptocurrency coin = new Cryptocurrency.empty();
 
-  CoinView(Cryptocurrency newCoin) {
-    coin = newCoin;
+
+
+  void setCoin(Cryptocurrency newCoin){
+    this.coin = newCoin;
   }
 
   @override

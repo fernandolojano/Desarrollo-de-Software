@@ -9,6 +9,7 @@ import 'package:crypto_visionary/FIlterInvestment.dart';
 import 'package:crypto_visionary/FilterHalving.dart';
 import 'package:crypto_visionary/FilterManager.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 
 void main() {
 
@@ -22,6 +23,7 @@ double generarInversion(){
   return (rand.nextDouble() * (max-min) + min);
 
 }
+
 
 class CryptoVisionary extends StatelessWidget {
 
@@ -38,6 +40,8 @@ class CryptoVisionary extends StatelessWidget {
     throw UnimplementedError();
   }
 }
+
+
 
 class MyHomePage extends StatefulWidget {
   MyHomePage({Key key, this.title}) : super(key: key);
@@ -58,11 +62,20 @@ class MyHomePage extends StatefulWidget {
   _MyHomePageState createState() => _MyHomePageState();
 }
 
+
+void runCoinView(BuildContext context, Cryptocurrency coin){
+  CoinView visor = new CoinView();
+
+  visor.setCoin(coin);
+  Navigator.push(context, MaterialPageRoute(builder: (context) => visor));
+}
 class _MyHomePageState extends State<MyHomePage> {
   Timer timer;
   BDCriptomonedas baseDatos = new BDCriptomonedas();
   FilterManager filterManager = new FilterManager();
   List<Cryptocurrency> misMonedas = [];
+
+
 
   void aplicarFiltros() {
     filterManager.addFilter(new FilterHalving(1.001));
@@ -74,14 +87,12 @@ class _MyHomePageState extends State<MyHomePage> {
     //Actualizador actualizador = new Actualizador(baseDatos, filterManager);
     misMonedas = baseDatos.getListaMonedas();
   }
-
-  /*
+/*
   @override
   void initState(){
-    timer= Timer.periodic(Duration(seconds: 2), (Timer t) => changeValue());
     super.initState();
+    timer= Timer.periodic(Duration(seconds: 2), (Timer t) => changeValue());
   }
-  */
 
   void changeValue(){
     setState(() {
@@ -91,15 +102,12 @@ class _MyHomePageState extends State<MyHomePage> {
     });
   }
 
-
-  /*
   @override
   void dispose(){
-    timer.cancel();
+    timer?.cancel();
     super.dispose();
   }
-   */
-
+*/
   @override
   Widget build(BuildContext context) {
 
@@ -114,23 +122,23 @@ class _MyHomePageState extends State<MyHomePage> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
-      appBar: AppBar(
-        // Here we take the value from the MyHomePage object that was created by
-        // the App.build method, and use it to set our appbar title.
-        title: Text(widget.title),
-      ),
-      body: ListView.builder(
-        itemCount: misMonedas.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) => CoinView(misMonedas[index])));
-            },
-            title: Text(misMonedas[index].getToken()),
-            subtitle: Text("\$" + misMonedas[index].getValorActual().toString()),
-            trailing: Icon(Icons.keyboard_arrow_right_rounded),
-          );
-        })
+        appBar: AppBar(
+          // Here we take the value from the MyHomePage object that was created by
+          // the App.build method, and use it to set our appbar title.
+          title: Text(widget.title),
+        ),
+        body: ListView.builder(
+            itemCount: misMonedas.length,
+            itemBuilder: (context, index) {
+              return ListTile(
+                onTap: () {
+                  runCoinView( context, misMonedas[index]);
+                },
+                title: Text(misMonedas[index].getToken()),
+                subtitle: Text("\$" + misMonedas[index].getValorActual().toString()),
+                trailing: Icon(Icons.keyboard_arrow_right_rounded),
+              );
+            })
     );
   }
 }
