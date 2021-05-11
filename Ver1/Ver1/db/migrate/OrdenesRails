@@ -1,0 +1,19 @@
+rails generate model Usuario username:string password:string
+
+rails generate model Divisa token_divisa:string nombre_divisa:string valor:float
+
+rails generate model Criptomoneda token:string nombre:string valor_actual:float
+
+rails generate model ValorHistorico fecha:datetime valor:float criptomoneda:references
+
+rails generate model BalanceCriptomoneda  token:string valor:float usuario:references criptomoneda:references
+
+rails generate model BalanceDivisa token_divisa:string valor:float usuario:references divisa:references
+
+rails destroy model NombeModelo
+
+
+
+//Comprobar modelos existentes
+1º- /bin/rails console
+2ª- ActiveRecord::Base.descendants
