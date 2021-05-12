@@ -15,7 +15,6 @@ void main() {
     await tester.pumpWidget(CryptoVisionary());
     await tester.pump();
 
-    // Verify that our counter starts at 0.
     expect(find.text('BTC'), findsOneWidget);
     expect(find.text(''), findsNothing);
   });
@@ -25,7 +24,7 @@ void main() {
     await tester.pumpWidget(CryptoVisionary());
     await tester.pump();
 
-    // Verify that our counter starts at 0.
+
     expect(find.text('\$2400.0'), findsOneWidget);
     expect(find.text(''), findsNothing);
   });
@@ -35,7 +34,6 @@ void main() {
     await tester.pumpWidget(CryptoVisionary());
     await tester.pump();
 
-    // Verify that our counter starts at 0.
     expect(find.byIcon(Icons.keyboard_arrow_right_rounded), findsWidgets);
     expect(find.text(''), findsNothing);
   });
